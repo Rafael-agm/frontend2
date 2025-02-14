@@ -1,22 +1,3 @@
-# Dados simulados de altura e gênero (Masculino = 'M', Feminino = 'F')
-dados = [
-    (1.75, 'M'),
-    (1.80, 'M'),
-    (1.60, 'F'),
-    (1.65, 'M'),
-    (1.55, 'F'),
-    (1.70, 'F'),
-    (1.85, 'M'),
-    (1.78, 'M'),
-    (1.90, 'F'),
-    (1.62, 'M'),
-    (1.68, 'M'),
-    (1.72, 'F'),
-    (1.59, 'M'),
-    (1.64, 'F'),
-    (1.80, 'M')
-]
-
 # Inicializando variáveis para os cálculos
 maior_altura = float('-inf')
 menor_altura = float('inf')
@@ -24,8 +5,17 @@ soma_altura_masculino = 0
 num_masculino = 0
 num_feminino = 0
 
-# Processando os dados
-for altura, genero in dados:
+# Solicitando os dados para 15 pessoas
+for i in range(15):
+    # Entrada dos dados
+    altura = float(input(f"Digite a altura da pessoa {i + 1} em metros: "))
+    genero = input(f"Digite o gênero da pessoa {i + 1} (M para Masculino, F para Feminino): ").strip().upper()
+    
+    # Validar gênero
+    if genero not in ['M', 'F']:
+        print("Gênero inválido! Por favor, insira 'M' para Masculino ou 'F' para Feminino.")
+        continue
+    
     # Maior e menor altura
     if altura > maior_altura:
         maior_altura = altura
@@ -43,8 +33,7 @@ for altura, genero in dados:
 media_altura_masculino = soma_altura_masculino / num_masculino if num_masculino > 0 else 0
 
 # Exibindo os resultados
-print(f'Maior altura: {maior_altura} metros')
+print(f'\nMaior altura: {maior_altura} metros')
 print(f'Menor altura: {menor_altura} metros')
 print(f'Média de altura do gênero Masculino: {media_altura_masculino:.2f} metros')
 print(f'Número de pessoas do gênero Feminino: {num_feminino}')
-
